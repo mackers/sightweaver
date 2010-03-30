@@ -1,0 +1,166 @@
+% $Id: conclusion.tex 269 2003-04-22 14:45:04Z mackers $
+
+\section{What Was Achieved}
+
+A lot of new technologies and skills were learnt during the course of the
+project. 
+
+As demonstrated in chapter 2, an extensive understanding of the core
+technologies involved was undertaken. This included reading W3C's extensive and
+detailed specifications and recommendations for HTML and XHTML and
+accessibility guidelines for web content and authoring tools.
+
+There were other, secondary technologies that were learnt as part of the
+project implementation. These included using Swing to develop the 
+graphical user interface and Xerces has an XML and DOM parser. Javadoc
+was also employed to create the project API.
+
+Auxiliary achievements include learning and using CSV as a version control
+system for the program source code and learning to use \LaTeX\ to write and
+typeset this report.
+
+It was also very interesting and beneficial to go through the whole software
+engineering process, from researching a topic, defining requirements and
+specifications right through to writing the actual software and evaluating it.
+There was an incredible sense of satisfaction and achievement when the project
+was successfully completed. 
+
+\section{Future Work}
+
+\label{futurework}
+
+The project as a whole can be said to have reached a level
+of stability and completeness; a true ``version 1.0''. However,
+this does not preclude the possibility of improvements and
+other features being added.
+
+Naturally, the first improvement would be to fix the bugs listed
+in the ``Known Issues'' section on page \pageref{knownissues}. All
+of these should be fairly trivial to fix.
+
+Other improvements that could be made are listed below. They
+were not listed in the known issues list because they were not
+part of the original requirements, and did not need to be 
+implemented.
+
+\begin{itemize}
+
+\item ``Rowgroup'' and ``colgroup'' scopes could be supported when
+importing documents. Although the supported output formats do
+not use these attributes, supporting them would mean that the
+program supports all table accessibility features. (bug 0016)
+
+\item The user should be informed if the program could not
+identify or guess any header information. This would ensure
+that the user does not attempt to export the document without
+this fundamental information. (bug 0020)
+
+\item In the absence of a table summary, either in the original
+document or supplied by the user, the program could generate
+the summary based on the number of rows and columns and other
+structural information in the table. (bug 0021)
+
+\item The table cell renderer is too slow. This is probably
+because each time the table is refreshed a new component
+is created for the cell and return to the table renderer.
+Instead, the same cell component should be reused. (bug 0025)
+
+\item If a generator tag is present in the imported document,
+it is currently replaced with a SightWeaver generator tag.
+However, if one is not present, then it cannot be replaced. A
+new generator tag should be added. (bug 0023)
+
+\end{itemize}
+
+Here are some other features that the program would benefit from:
+
+\begin{itemize}
+
+\item The RDF importer is currently supported, but not implemented. If one was
+to implement this, a ``RDFImporter'' class would be created to implement the
+``Importer'' interface, in a similar manner to the ``CSVImporter''. The
+compiled class can then just be dropped into the sightweaver package and the
+Document class will use this for RDF files.
+
+\item Other importers that could be implemented include a native binary Word
+format importer (difficult!), a DOCBOOK importer, etc. 
+
+\item It would also be nice if a URL could be provided to import documents, and
+if the exporter could publish directly to the web via FTP or WEBDAV, allowing
+the user to use the program as a final step before publishing to the website.
+
+\item Cell spanning is currently ugly and unintuitive. Word and web user are 
+accustomed to seeing spanned cells appearing in the same cell, as opposed
+to having a placeholder cell instead. In this case, it might be possible
+to turn off the cell borders for the spanned cells to give the impression
+that the spanned cells are a single cell with text that is top- and left-aligned.
+Anything more sophisticated than that would require a more drastic approach
+involving moving away from the current JTable approach to manually place the
+cells. Using this approach, a single cell could be place anywhere in the
+table, allowing the impression that the cell was spanned and has centre- and
+middle-aligned text.
+
+\item A feature that would be of great help to content developers with an
+accessibility conscience would be a ``screen-reader simulation'' mode. This
+would involved a dialog that would either display or speak a version of the
+table or document as it would appear to a user using a screen-reader. This
+would give confidence to the content developer that his or her tables
+actually make sense when viewed in this manner.
+
+\item Large organisations may use an existing content development package or
+system that is unsuitable for create accessible content. This program would be
+attractive in that situation, as it could convert the existing format to an
+accessible one. However, most organisations have a large amount of documents
+that would have to be converted; a tedious task if they are all similar but
+needed to be converted manually. Ideally, this tool would `learn' from a single
+document and be able to apply that to the rest in the document set. This solution
+would require a fair amount of clever AI techniques.
+
+\end{itemize}
+
+It is also quite practical for the program to be included as part of another,
+larger program. All the functionality of the document import and export
+algorithms has been completely separated from the graphical user interface.
+Also, the main functionality of the user interface has been modularised into
+the SWTable classes, meaning that the actual window itself is merely a holder
+for the menus (which simply calls functions of the table) and the status bar
+(which is manipulated by the table). By implementing the ``SWJTableContainer''
+interface, any other window, frame or other container can be fully compatible
+with the bulk of the program. It should also be possible to implement the
+program as a web service, however some user feedback is always needed so the 
+process can never be fully automated.
+
+As the program is fully internationalisable, it's relatively easy to localise
+into different languages. Translators need only make a copy of the
+``sw.properties'' file and translate each string therein (with a
+couple of marked exceptions). The new file is then saved with a new filename
+indicating the language and country code. For example, Austrian German
+would be saved in a file called ``sw\_de\_AT.properties''.
+
+It is intended to release the program source code under the GPL\cite{gpl} 
+license to encourage and allow people to implement some or all of these
+improvements as they see fit.
+
+\section{Conclusions}
+
+Overall, this project can be said to have been successful. The motivation
+behind the accessibility movement was presented both from a social and legal
+perspective. The report then went on to explain the accessibility standards and
+legislation that exists today, as well as the problems with websites as they
+stand today. Existing technologies and other related work in the fields of
+assistive technology and accessibility tools was then explored.
+
+The report then proposed a solution to one aspect of accessibility; tables. The
+solution was in the form of a tool to assist authors in creating fully
+accessible tables. The requirements and specification of the tool were
+detailed, as well as the architecture and design process. There then followed a
+discussion of the problems that occurred during development and the outstanding
+issues that remain. The tool was then evaluated against accessibility and legal
+standards.
+
+In this chapter, some possible future work in this area was discussed, as well
+as what was achieved in the project as a whole.
+
+The reader may additionally wish to peruse this report's appendices, which contain
+the day-by-day project diary, the tool's user manual and details on the contents
+of the accompanying CD-ROM.

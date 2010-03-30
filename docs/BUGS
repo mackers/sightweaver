@@ -1,0 +1,21 @@
+0015: handle or fix the connectexception for importing xhtml files on windows
+
+0018: check if table is layout table
+0014: regular expression for matching a HTML string is broken
+0002: user can do enter a duplicate header id
+0012: cells that are made headers are not given ids
+0001: cursor keys do nothing in table view
+0023: no generator tag on documents with no original generator tag
+0007: missing warning about importing new document without exporting previous document (may lose changes)
+0008: user can close window without exporting document (may lose changes)
+0009: upon adding a new header, the user not warned if header list is full (3 instances)
+0010: setting header scope to "row" on a cell that spans rows does not set the headers on cells to the left of the spanned cells
+0011: as bug 0010, but with columns
+0013: cell selection algorithm should be improved to check for differing attributes only once
+0016: handle "rowgroup" and "colgroup" scopes on imported documents (2 instances)
+0019: crop text of table selecter menu items to first 12 letters and "..."
+0020: inform user if we could not automatically find header info
+0021: summary should be automatically filled from column, row, heading and other information using heuristics
+0025: table display is slow because cell components are created every time. should be created once and stored.
+
+0026: exporting file should update title bar

@@ -1,0 +1,60 @@
+Why Bother?
+===========
+http://www.joeclark.org/book/sashay/serialization/AccessManifesto.html
+http://www.joeclark.org/book/sashay/serialization/Chapter02.html [why bother?]
+http://www.w3.org/WAI/bcase/benefits.html [Auxiliary Benefits of Accessible Web Design]
+http://www.w3.org/Talks/WAI-Intro/slide1-0.html [Overview of the Web Accessibility Initiative (slides)]
+http://www.sitepoint.com/article/952 [An Introduction To Accessible Web Design]
+http://diveintomark.org/archives/rooms/30_days_to_a_more_accessible_weblog/index.html [30 Days to a More Accessible Weblog]
+http://www.newarchitectmag.com/documents/s=2450/na1202c/ [Building a Barrier-Free Web]
+http://www.webaim.org/intro/ [Introduction to Web Accessibility]
+
+Background
+==========
+http://www.joeclark.org/book/sashay/serialization/Chapter03.html [how do disabled people use computers?]
+http://www.joeclark.org/book/sashay/serialization/Chapter04.html [what is media access?]
+http://www.w3.org/WAI/EO/Drafts/PWD-Use-Web/ [How People with Disabilities Use the Web]
+http://www.w3.org/WAI/impl/pol.html [How People with Disabilities Use the Web]
+http://www.w3.org/1999/05/WCAG-REC-fact.html [Fact Sheet for "Web Content Accessibility Guidelines 1.0"]
+
+Implementation
+==============
+http://www.joeclark.org/book/sashay/serialization/Chapter05.html [the structure of accessible pages]
+http://www.w3.org/TR/WCAG10/ [Web Content Accessibility Guidelines 1.0]
+
+Certification & Testing
+=======================
+http://www.w3.org/TR/WCAG10/full-checklist.html [Checklist of Checkpoints for Web Content Accessibility Guidelines 1.0]
+http://www.w3.org/WAI/eval/Overview.html [Evaluating Web Sites for Accessibility]
+jc - 14 - Certification and testing
+http://www.accessify.com/articles/accessibility-testing-on-a-budget_intro.asp
+
+Legal/Government Guidelines
+===========================
+http://accessit.nda.ie/technologyindex_1.html [Irish National Disability Authority IT Accessibility Guidelines for web]
+http://www.taoiseach.gov.ie/viewitem.asp?id=2142&lang=ENG
+http://www.webaim.org/standards/ [Web Accessibility Standards]
+http://www.section508.gov/
+http://www.webaim.org/standards/508/excerpts
+http://builder.com.com/article.jhtml?id=u00420030122WTK01.htm&page=1&vf=tt [Tips for managing Section 508 testing]
+http://www.jimthatcher.com/sidebyside.htm [side-by-side comparison of Section 508 and WCAG]
+http://www.webaim.org/standards/508/checklist [Section 508 checklist]
+http://www.webaim.org/articles/upolicies [University/Postsecondary Policies in the U.S.]
+
+Future
+======
+jc - 15 - future dreams
+
+Discussions
+===========
+http://interviews.slashdot.org/article.pl?sid=02%2F12%2F09%2F1446221
+
+Tools
+=====
+http://www.w3.org/WAI/ER/existingtools.html [Evaluation, Repair, and Transformation Tools for Web Content Accessibility]
+http://www23.brinkster.com/favelets/accessible-table-builder-intro.htm
+http://bobby.watchfire.com/bobby/html/en/index.jsp
+http://wave.webaim.org/
+http://www.w3.org/WAI/References/Tablin/
+http://www.webaim.org/simulations/screenreader
+http://www.webaim.org/simulations/lowvision

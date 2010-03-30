@@ -1,0 +1,369 @@
+% $Id: implementation.tex 269 2003-04-22 14:45:04Z mackers $
+
+\section{Road-map}
+
+The project road-map will roughly adhere to the following sequence:
+
+\begin{enumerate}
+
+\item The project will be begin with the testing and evaluation of the external
+tools, components and libraries chosen to complement the table repair tool.
+This will reveal at an early stage if the tools are suitable; that is, do they
+integrate into the program satisfactorily, and do the results meet what is
+required of them. If they do not meet the requirements then other tools must be
+investigated or the requirements altered. A short description of each external
+component follows:
+
+\begin{itemize}
+
+\item Probably the most important external library is JTidy, used for converting
+HTML documents to XHTML. JTidy must be tested for robustness in converting generic
+HTML and whether it is compatible with the ``Pre-Parser'' concept. JTidy must not
+remove existing accessibility information from the document.
+
+\item The CSV to XHTML convertor should be tested to determine if it is suitable
+and robust enough to use in the project.
+
+\item Xerces is a java XML parser that is considered to be more faster and more
+sophisticated than the built-in java XML parser. This library should be tested
+for compatibility with the standard java DOM classes.
+
+\item Although Swing is built in to java, it does not necessarily have to be
+used. It should be tested to see if it is suitable for this project, particularly
+the table display component and its accessibility features.
+
+\item CVS\footnote{Concurrent Versions System -- http://www.cvshome.org/} should 
+be used to maintain version information and allow for easy backup.
+
+\end{itemize}
+
+In addition, Java's localisation and javadoc features will be examined to see
+if they can be used with this particular project.
+
+\item To begin the actual coding stage, a ``bare-bones'' version of a single
+document importer will be implemented.  The XHTMLImporter is the most suitable
+choice, as it takes the least effort to import (i.e. using the XML parser). At
+this stage, the importer will be able to read the document and extract the most
+basic information such as normal (non-spanned) cells, and the table summary and
+caption. Some sample XHTML documents are created at this stage.
+
+\item Now that an internal representation of a table is available, a basic
+graphical user interface should be developed to display the basic table, in
+order to ensure that the internal representation is consistent with the
+actual table in the document. It is important to have a graphical representation
+at this stage as it would be difficult or impossible to view the overall table using
+traditional debugging methods.
+
+\item Once the basic table model is implemented and working, further features
+can be added to the table backend:
+
+\begin{itemize}
+
+\item Cells in the table should be checked for cell and row spanning and handled
+according to W3C HTML recommendations\cite{w3c:xhtml}. 
+
+\item If the document is missing headers, use the header finder algorithm as described
+in the requirements.
+
+\item The importer must take into account existing accessibility information in 
+the table. Scopes, headers associations, axes and abbreviations must be preserved
+and stored in the table or cell objects.
+
+\item If the table accessibility information for table header associations is missing
+or incomplete, find this using the heuristic algorithms described in the 
+requirements.
+
+\end{itemize}
+
+\item The user interface should be updated to use the new features from the previous
+step:
+
+\begin{itemize}
+
+\item The user interface will take spanned cells into account when rendering
+the table, either by spanning them as in browsers, or rendering spanned cells
+distinctly.
+
+\item The table status bar is implemented to show the attributes of the currently
+selected cell(s). This also requires the cell selection mechanism to be implemented.
+
+\end{itemize}
+
+\item After these basic requirements have been implemented, the rest of the graphical
+user interface should be added so that subsequent features can be easily tested:
+
+\begin{itemize}
+
+% -- moved to problems -- \item In the user interface window large tables should scroll.
+
+\item Table switching provided via the table menu.
+
+\item The application title bar should consist of application title, document title and table title.
+
+\item Table menus and menu-items should be enabled or disabled by context of open/closed document
+and selected cells as described in requirements.
+
+\item The interface and actual functionality of the dialogs.
+
+% -- moved to problems -- \item File filters for the ``Import'' dialog, e.g. ``*.html''.
+
+% -- moved to problems -- \item The mouse cursor should change to the ``Hourglass'' during imports, as they may take
+%a short while in which the application would appear to be doing nothing.
+
+\end{itemize}
+
+\item The HTML importer is now ready to be implemented. This should be a
+trivial matter, as JTidy has already been tested, and the XHTML importer has
+been implemented. In theory, JTidy will open the HTML and give back XHTML,
+which can be used by the XHTML importer. Pre-parser support should also be
+implemented at this stage. 
+
+\item The CSV importer will also be implemented (using the CSV to XHTML convertor).
+
+\item The XHTML exporter will now be implemented. This should be relatively
+trivial as the document's tables and cells have been keeping a record of their
+DOM structure to reflect each automated or user change. This means that a
+current DOM document is available to export. It might be desirable to use
+JTidy's ``pretty-printer'' to output aesthetic XHTML (i.e. indented, etc.).
+The ``View Source'' feature, which uses the exporter, should be implemented at
+this stage.
+
+\item Now that all the main requirements of the tool have been implemented, the
+usability can be focused upon. This includes providing meaningful feedback for
+errors when importing and exporting documents. The dialog descriptions are also
+entered (if not already).
+
+\item Finally, any remaining Swing accessibility features are added. This includes adding
+mnemonics to menus and buttons, adding descriptions to menu items and menus and ensuring
+all labels are correctly associated with a menu item.
+
+\item Any remaining javadoc documentation should be added now.
+
+\end{enumerate}
+
+\section{Samples}
+
+The sample set consists of a series of files that will be used for testing
+the program's import function as to whether it meets the requirements. The
+files will also expose any bugs in the software. 
+
+The criteria for the sample set is as follows:
+
+\begin{enumerate}
+
+\item Documents outputted from each of the supported programs identified
+in the requirements section.
+
+\item Tables containing all the accessibility features that are 
+required to be retained during the import process, e.g. scope, headers, axis
+and abbreviation.
+
+\item A table with column groups.
+
+\item A table with rows shorter than others.
+
+\item A table with headers marked up as bold.
+
+\item A table with a `thead' element instead of headers.
+
+\item A table with no headers or header associations.
+
+\item A table with cells spanning rows and columns.
+
+\item A document with multiple tables.
+
+\item A document with (non-accessible) text outside of a table.
+
+\item A document with a nested table.
+
+\item A document using a layout table.
+
+\item A document with no tables.
+
+\item At least one sample should be an XHTML file.
+
+\item A Word document in its native format.
+
+\item A sample CSV file.
+
+\item A sample unsupported file.
+
+\item Several mal-formed HTML files to test JTidy (these are not including
+in the sample set).
+
+\end{enumerate}
+
+\section{Problems Encountered}
+
+During the development of the program, several problems were encountered.
+These, together with their solutions, are documentated below.
+
+\label{problems}
+
+\subsection{Localisation}
+
+\begin{itemize}
+
+\item The first issue that became evident was the problem with hard coding
+English-language text in the user interface. If, at some future stage, the
+program needed to be \emph{localised}, i.e. translated into another language,
+then all user interface text in the program would have to be located and
+translated in the source code, requiring a recompilation. This would be a time
+consuming and tedious task. Instead, all English-language user interface
+strings were placed into a \emph{String-Bundle} file and loaded via the
+String-Bundle interface. Should a localised version be developed, the human
+translator need only translate those strings in the file and rename the file
+appropriately and java will use that file instead.
+
+\item From this it also became clear that menu and buttons mnemonics (i.e. 
+shortcut keys) could not be hard-coded into the application, as they would 
+be different for every language. For example, in English, the mnemonic
+for the ``File'' menu would be `F', whereas in Spanish, the mnemonic for
+the same menu (``Archivo'' when localised) would be `A'. To this end, the
+menu, menu item and buttons mnemonics were also placed in the localised
+String-Bundle file.
+
+\item Long text fields presented a problem during the localisation process.
+When the length of the text is known, it is possible to split the text so that
+it appears correctly and does not stretch the size of the dialog or become
+truncated. However, it is more difficult to control the layout of the text when
+it must be loaded from a String-Bundle file. For short texts a backslash-n was placed
+in the string to cause the Swing component to insert a new line. For longer
+texts it was discovered that Swing's JLabel can render a string as HTML, thus
+causing it to \emph{wrap} correctly inside the dialog or interface. As a
+result, long texts are now represented as in-line HTML documents in the
+String-Bundle file.
+
+\item Also, because the main dialogs are being implemented from scratch, the
+text and keys for the default ``OK'' and ``Cancel'' buttons must be localised,
+whereas normally a dialog using the standard JOptionPane constructs would
+handle this.
+
+\item The French language bundle is included with the program. If the operating
+system's locale is set to French, then Java will automatically select this
+locale to use, and the dialogs and user interface strings will appear in
+French. Without having to resort to changing the whole operating system's
+locale, the French language bundle can be tested by invoking the java command
+with the ``user.language'' system property set to `fr' and the ``user.region''
+system property set to `FR'.
+
+\end{itemize}
+
+\subsection{Importing Tables}
+
+\begin{itemize}
+
+\item The HTML, XHTML and CSV importers have been implemented in this release
+of the program but the RDF importer has not. It would be desirable to allow
+for this importer to be implemented at a later stage, perhaps by a third person
+without any alteration of the existing code. 
+
+This required the program to \emph{test} whether the class existed or not.
+Regular java code would create a new instance of the RDFImporter using the
+\code{new} keyword in order to use it.  However, this would give a compilation
+error as the class doesn't exist. Instead the \code{newInstance()} method of
+Java's \code{Class} class is used to create the instance of RDFImporter. If the
+class has been implemented then it can be used. Otherwise, an exception can be
+caught and the user informed that RDF is not available.
+
+\item The Pre-Parser stage of the HTML importer requires a knowledge of the
+program in which the HTML was originally created. The requirements section of
+this document stated that this should be taken from the document's `Generator'
+meta tag. In practice, however, extracting the value of this attribute poses a few problems. Firstly, the case of
+the element, attribute name or attribute value may be lowercase, uppercase or a
+mixture of the two. Secondly, quotes around the attribute value may be single
+quotes, double quotes or missing altogether. The various supported programs
+generate a combination of all these problems. It was concluded that the best
+means to extract the exact generator attribute value was via a \emph{regular
+expression}. Regular expressions are a powerful way to match patterns in
+strings of text. In this case, the regular expression is used to match
+case-insensitively with optional quotes around the attribute values.
+
+\item The ``Make Header'' and ``Make Data'' features need to change the tag
+name of the cell in the document's DOM. However, there is no DOM function
+to change a tag's name. This necessitated a new function to do this, which 
+consisted of the cloning of the old element's child nodes and attributes into
+a new element with the new name and swapping them in the DOM tree.
+
+\item A seemingly intermittent problem occurred when importing XHTML files.
+Upon attempting to load and parse the XHTML file, a
+\emph{NoRouteToHostException} was being thrown. After some investigation, it
+was realized that this problem was only occurring on certain machines, that is,
+those without a direct external connection to the Internet. What was in fact
+happening, was that the XML parser was attempting to download the XHTML
+DTD\footnote{The DTD file is used to check the XHTML file for \emph{validity}
+and has a uniform worldwide location of
+http://www.w3.org/tr/xhtml1/Dtd/xhtml1-strict.dtd} and was unable to because it
+was unaware of the proxy settings needed. To overcome this problem, java
+needed to be started with the system \code{http.proxyHost} and \code{http.proxyPort}
+settings defined correctly.
+
+\end{itemize}
+
+\subsection{Graphical User Interface}
+
+\begin{itemize}
+
+\item Selected table cells are indicated by a different background colour
+(light blue). This was implemented by returning a new cell component albeit
+with a different background colour. However, this only set the background
+colour behind the text and not in the whole cell, which looked a bit
+unconventional and unintuitive. The cell component was then set to be the
+maximum possible size, meaning that it would stretch inside the table cell
+and the background colour would include the entire area.
+
+\item Large tables caused a problem with the table display mechanism. If the
+number of rows exceeded the size of the application window, then Swing would
+reduce the height of all the rows to make room. This resulted in unreadable
+text, which was problematic in conveying the header information to the user.
+This problem was solved by placing each table in a \emph{ScrollPane} which
+provides a vertical scrollbar which does not force Swing to squash the table
+rows and can be used by the user to scroll the table up or down to reveal
+the rest of the table.
+
+\item Each cell renders the first text node found in the corresponding cell in
+the table in the import document. However, if text in the cell is within
+another element, for example a paragraph or bold element then this is not
+returned by the appropriate DOM function. A new DOM function was written to
+return \emph{all} text found in the context of the cell, including that found
+in sub-elements. This ensured that the cell's made sense in all contexts.
+
+\item Some importers take a short while to open and parse the document. This is
+especially noticeable with the HTMLImporter, which must call JTidy to convert
+the import document. During this time, the application does not appear to do
+anything, even to ``hang'' momentarily. Depending on the size of the document,
+the user may be unaware of what is happening and may believe something has gone
+wrong as the program is not responding. To overcome this ambiguity, the mouse
+cursor is temporarily changed to the wait or `hourglass' cursor while the
+document is being imported. This provides visual feedback to the user who knows
+that something is happening in the background and that he/she must wait.
+
+\item The application was developed on a Linux system using the default
+Swing application look-and-feel. For experienced Linux users, this interface
+poses no problem as they are used to and feel comfortable with a range of
+different look-and-feels. However, Windows users may not be entirely 
+comfortable with strange interfaces. To this end, the program now uses the
+`system' look-and-feel, which causes Swing to render components differently
+depending on the operating system under which it is run.
+
+\item Testing the software in Windows revealed that the JTable was rendered
+slightly different than during development, in that blank JTable headers 
+were displayed. This was fixed.
+
+\end{itemize}
+
+\subsection{Packaging}
+
+\begin{itemize}
+
+\item The program is to be deployed as a JAR archive file, and testing as this
+revealed some problems. The first problem was that the ``.properties'' 
+String-Bundle files were not correctly loaded, resulting in blank user interface
+strings. This problem was solved by adding a package qualifier to the function
+loading these files.
+
+\item Also, the default class to run should be specified in the JAR file, as this
+simplifies the execution of the program. This involved creating a \emph{Manifest}
+file for the JAR package which stated which was the default class to run.
+
+\end{itemize}

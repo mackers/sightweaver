@@ -1,0 +1,133 @@
+% $Id: appendix-b.tex 269 2003-04-22 14:45:04Z mackers $
+
+\setlength{\parindent}{0em}
+
+\chapter{Project Diary}
+
+\subsubsection{Week Starting November 4th}
+
+Background reading of W3C guidelines and reports and other web
+tutorials. Wrote draft of ``introduction'' and ``background'' chapters.
+
+\subsubsection{Week Starting November 11th}
+
+Started to create sample set to get broad idea of technologies
+involved.
+
+Investigated related work.
+
+\subsubsection{Week Starting December 20th}
+
+Created first ``requirements and specifications'' draft.
+
+\subsubsection{Week Starting January 6th}
+
+Designed project architecture and class structure
+
+\subsubsection{Week Starting January 13th}
+
+Implemented skeletal classes.
+
+\subsubsection{January 21st}
+
+Read the Swing tutorial, played with sample applications and created
+first SWJFrame window.
+
+\subsubsection{January 23rd}
+
+Investigated internationalisation features. Created sw.properties file.
+Replaced menu names with internationalised versions.
+
+\subsubsection{January 24th}
+
+Played with java Xerces. Added XML/DOM parsing function to XHTMLImporter.
+Added temporary ``Debug'' menu to program.
+
+\subsubsection{February 7th}
+
+Preliminary DOM parsing. Code to map table rows and cells to internal
+data structures. Summary and caption parsing.
+
+\subsubsection{February 10th}
+
+Worked on table display classes. Implemented \code{getComponent} method
+in cells and header cells.
+
+\subsubsection{February 16th}
+
+Implemented \code{NullCell} to add row and column spanning support. Algorithms
+for filling cells correctly around spanned cells and short rows. Aligned
+with W3C specifications.
+
+\subsubsection{February 17th}
+
+Added cell selection support using a mouse listener on the table. Updated
+cell class to change background colour for selected cells.
+
+\subsubsection{February 18th}
+
+Placed tables in scroll pane to allow user to scroll big tables. Added status
+bar with placeholder text. Added window title bar text.
+
+\subsubsection{February 20th}
+
+Implemented id/abbr/axis and basic headers importing and hooked this in to
+the status bar display code. Table switching now available from table menu.
+
+\subsubsection{March 12th}
+
+Implemented HTML importing using JTidy, a CSV importer and a XHTML exporter
+using JTidy's pretty print function.
+
+\subsubsection{March 13th}
+
+Improved header import algorithm to support scopes and theads. Also imported
+the header finder algorithm for unclaimed cells. 
+
+Implemented `AI' header finder algorithm using heuristics for detecting
+headers marked up as bold, etc.
+
+Spanned cells are now displayed prettily in the user interface and the ``no-mans-land''
+is painted white.
+
+Improved exporter to export existing cell attributes and correct tag names
+for guessed headers.
+
+\subsubsection{March 14th}
+
+Work on menus; added separators and context enabling based on selected cells, 
+as per requirements.
+
+Misc. testing and bug fixing and usability improvements with dialog boxes for
+import errors such as nested/missing table testing. Added filters to import
+dialog box. Added view source functionality.
+
+Added pre-parsers via ``generator'' regular expression.
+
+\subsubsection{March 15th}
+
+JAR file testing revealed some bugs. Testing on Windows revealed more bugs.
+
+\subsubsection{March 18th}
+
+Dialog day - implemented user interface and functionality of all dialogs, which 
+was simply a matter of calling the appropriate methods on the existing document,
+table and cell classes.
+
+\subsubsection{March 30th}
+
+Added descriptions to dialogs.
+
+\subsubsection{April 3rd}
+
+Added mnemonics to menus and menu items.
+
+\subsubsection{April 4th}
+
+Added remaining Swing accessibility requirements, such as giving components
+accessible names and descriptions where necessary and linking labels to their
+related components.
+
+\subsubsection{April 6th}
+
+Added any remaining javadoc comments.

@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html
+ xmlns="http://www.w3.org/1999/xhtml"
+ xml:lang="en"
+ lang="en">
+  <head>
+    <title>Multiple Tables Sample 1</title>
+  </head>
+
+  <body>
+    <table
+     summary="5 cols, lots of rows">
+      <caption>
+        Travel Expense Report
+      </caption>
+
+      <tr>
+        <th
+         id="h0">
+        </th>
+
+        <th
+         id="header2"
+         axis="expenses">Meals</th>
+
+        <th
+         id="header3"
+         axis="expenses">Hotels</th>
+
+        <th
+         id="header4"
+         axis="expenses">Transport</th>
+
+        <td
+         headers="header4 header3 header2 h0">subtotals</td>
+      </tr>
+
+      <tr>
+        <th
+         id="header6"
+         axis="location">San Jose</th>
+
+        <th
+         id="h1">
+        </th>
+
+        <th
+         id="h2">
+        </th>
+
+        <th
+         id="h3">
+        </th>
+
+        <td
+         headers="h3 h2 h1 header6">
+        </td>
+      </tr>
+
+      <tr>
+        <td
+         id="header7"
+         axis="date"
+         headers="header6 h0">25-Aug-97</td>
+
+        <td
+         headers="header6 header7 header2">37.74</td>
+
+        <td
+         headers="header6 header7 header3">112.00</td>
+
+        <td
+         headers="header6 header7 header4">45.00</td>
+
+        <td>
+        </td>
+      </tr>
+
+      <tr>
+        <td
+         id="header8"
+         axis="date"
+         headers="header6 h0">26-Aug-97</td>
+
+        <td
+         headers="header6 header8 header2">27.28</td>
+
+        <td
+         headers="header6 header8 header3">112.00</td>
+
+        <td
+         headers="header6 header8 header4">45.00</td>
+
+        <td>
+        </td>
+      </tr>
+
+      <tr>
+        <td
+         headers="header6 h0">subtotals</td>
+
+        <td
+         headers="h1 header2">65.02</td>
+
+        <td
+         headers="h2 header3">224.00</td>
+
+        <td
+         headers="h3 header4">90.00</td>
+
+        <td
+         headers="header6">379.02</td>
+      </tr>
+
+      <tr>
+        <th
+         id="header10"
+         axis="location">Seattle</th>
+
+        <th
+         id="h4">
+        </th>
+
+        <th
+         id="h5">
+        </th>
+
+        <th
+         id="h6">
+        </th>
+
+        <td
+         headers="h6 h5 h4 header10">
+        </td>
+      </tr>
+
+      <tr>
+        <td
+         id="header11"
+         axis="date"
+         headers="header10">27-Aug-97</td>
+
+        <td
+         headers="header10 header11 header2">96.25</td>
+
+        <td
+         headers="header10 header11 header3">109.00</td>
+
+        <td
+         headers="header10 header11 header4">36.00</td>
+
+        <td>
+        </td>
+      </tr>
+
+      <tr>
+        <td
+         id="header12"
+         axis="date"
+         headers="header10">28-Aug-97</td>
+
+        <td
+         headers="header10 header12 header2">35.00</td>
+
+        <td
+         headers="header10 header12 header3">109.00</td>
+
+        <td
+         headers="header10 header12 header4">36.00</td>
+
+        <td>
+        </td>
+      </tr>
+
+      <tr>
+        <td
+         headers="header10">subtotals</td>
+
+        <td
+         headers="h4">131.25</td>
+
+        <td
+         headers="h5">218.00</td>
+
+        <td
+         headers="h6">72.00</td>
+
+        <td
+         headers="header10">421.25</td>
+      </tr>
+
+      <tr>
+        <th
+         id="h7">Totals</th>
+
+        <td
+         headers="h4 h7">196.27</td>
+
+        <td
+         headers="h5 h7">442.00</td>
+
+        <td
+         headers="h6 h7">162.00</td>
+
+        <td
+         headers="h7">800.27</td>
+      </tr>
+    </table>
+
+    <table
+     summary="5 cols, 4 rows ">
+      <caption>
+        Population Survey 1
+      </caption>
+
+      <tr>
+        <th
+         rowspan="2"
+         colspan="2"
+         id="h0"
+         abbr="popsurv">Ruritanian Population Survey</th>
+
+        <th
+         rowspan="2"
+         id="h1"
+         abbr="allgend">All Genders</th>
+
+        <th
+         colspan="2"
+         id="h2"
+         abbr="bygend">By Gender</th>
+      </tr>
+
+      <tr>
+        <th
+         id="h3">Males</th>
+
+        <th
+         id="h4">Females</th>
+      </tr>
+
+      <tr>
+        <th
+         rowspan="2"
+         id="h5"
+         abbr="all reg">All Regions</th>
+
+        <th
+         id="h6">North</th>
+
+        <td
+         headers="h1 h6 h5">3333</td>
+
+        <td
+         headers="h3 h2 h6 h5">1111</td>
+
+        <td
+         headers="h4 h2 h6 h5">2222</td>
+      </tr>
+
+      <tr>
+        <th
+         id="h7">South</th>
+
+        <td
+         headers="h1 h7 h5">3333</td>
+
+        <td
+         headers="h3 h2 h7 h5">1111</td>
+
+        <td
+         headers="h4 h2 h7 h5">2222</td>
+      </tr>
+    </table>
+  </body>
+</html>
+

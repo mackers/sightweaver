@@ -1,0 +1,19 @@
+What Is SightWeaver?
+
+SightWeaver is a tool for repairing HTML tables so that they comply with accessibility standards. The program imports existing HTML documents, and attempts to determine accessibility information from the markup. The user is then presented with the corrected tables and may verify and refine the table structure and accessibilty information before exporting the document.
+
+Features
+
+    * Can import XHTML, HTML and CSV files formats. Invalid or badly marked up HTML is supported by using JTidy.
+    * Microsoft Word and Excel "Save-As-HTML" documents are also explicitly supported.
+    * All existing accessibility information in the original document is preserved and re-used.
+    * Documents can contain up to 10 tables. Non-table content is preserved and also "cleaned" using JTidy.
+    * Robust table parser - cell spanning, short rows, thead, etc.
+    * The user is given full control over all accessibility information in the tables; including table summaries, captions and cell headers structure, header associations, axes and abbreviations.
+    * Output is well-formed, valid XHTML*.
+    * [Table] output conforms to WCAG and Section 508 web standards*.
+    * Program conforms to ATAG*.
+
+http://www.mackers.com/projects/sightweaver/
+http://github.com/mackers/sightweaver
+

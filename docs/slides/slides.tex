@@ -1,0 +1,325 @@
+\documentclass[landscape,20pt]{foils}
+
+\usepackage[pdftex]{color}
+\usepackage[pdftex]{graphicx}
+
+%\usepackage{times}
+%\usepackage{mdwlist}
+%\usepackage{xspace}
+\usepackage{verbatim}
+%\usepackage{calc}
+%\usepackage{algorithmic}
+%\usepackage{vector}
+
+\usepackage{subfigure}
+
+\RequirePackage{ifthen}
+\RequirePackage{times}      % Loads the Times-Roman Fonts
+\RequirePackage{mathptm}    % Loads the Times-Roman Math Fonts
+\RequirePackage{pifont}     % Loads the Postscript symbol fonts
+
+\usepackage{url}
+
+\newcommand{\jhead}[1]{\foilhead{\flushleft \textcolor{blue}{\large   #1}
+\vspace{-1.9cm} 
+\textcolor{blue}{\rule{25cm}{0.5mm}}
+}}
+
+\usepackage[pdftex]{geometry}               %for resizing the headers
+\geometry{
+  hscale=0.9,                       %make the slides 90% of the screen
+                                            %   width
+  headsep=2mm,                             %make the size below the header 
+                                            %   larger
+  footskip=.5in}                            %make the footer area smaller
+
+
+%-----------------------------------------------------------------------
+
+\title{\textcolor{blue}{SightWeaver: A Table Repair Tool}}
+\author{David McNamara}
+
+\date{Tuesday April 1st, 2003}
+
+%-----------------------------------------------------------------------
+
+\begin{document}
+\bf
+
+\MyLogo{\hspace{-0.5cm} \tiny Department of Computer Science, Trinity College Dublin}
+%\LogoOff
+
+\maketitle
+
+\vspace{1cm}
+\centerline{\includegraphics{figures/sw-logo.png}}
+
+%----------------------------------------
+
+%----------------------------------------
+
+\jhead{Motivation}
+
+% Turn on the slide count after the title page
+\setcounter{page}{2}
+\MyLogo{{\tiny Slide \thepage\ of 7}}
+%\LogoOn
+
+\rightfooter{\includegraphics[height=2cm]{figures/sw-logo.png}}
+
+%\begin{center}
+%\includegraphics[height=4in]{figures/stick-figures.pdf}
+%\end{center}
+
+\begin{itemize}
+
+\item Why bother with website accessibilility?
+
+\begin{itemize}
+
+%\item 2.4\% - 4.8\% of American Internet users have some disability
+\item Significant percentage of Internet users are disabled
+
+\item Legal liability
+
+\end{itemize}
+
+\item Myths about accessibility
+
+\begin{itemize}
+
+\item Cost
+
+\item Difficulty
+
+\end{itemize}
+
+\item Auxillary benefits
+
+\begin{itemize}
+
+\item More visitors
+
+\item Better website quality
+
+\item Improved search engine rankings
+
+\item Reduced bandwidth use
+
+\end{itemize}
+
+\end{itemize}
+
+%----------------------------------------
+
+%----------------------------------------
+
+\jhead{Accessibility}
+
+% Turn on the slide count after the title page
+\setcounter{page}{3}
+\MyLogo{{\tiny Slide \thepage\ of 7}}
+%\LogoOn
+
+\rightfooter{\includegraphics[height=2cm]{figures/sw-logo.png}}
+
+%\begin{center}
+%\includegraphics[height=4in]{figures/stick-figures.pdf}
+%\end{center}
+
+\begin{itemize}
+
+\item W3C Web Accessibility Initiative
+
+\item Web Content Guidelines
+
+\begin{itemize}
+
+\item Text alternatives
+
+\item Valid markup
+
+\item Colour, language, abbreviations, etc.
+
+\end{itemize}
+
+\item Tables
+
+\begin{itemize}
+
+\item Summaries and captions
+
+\item Headers and header associations, axes
+
+\item Abbreviations
+
+\end{itemize}
+
+\item Priority Levels
+
+\item Authoring Tool Guidelines
+
+\end{itemize}
+
+%----------------------------------------
+
+
+%----------------------------------------
+
+\jhead{Requirements}
+
+% Turn on the slide count after the title page
+\setcounter{page}{4}
+\MyLogo{{\tiny Slide \thepage\ of 7}}
+%\LogoOn
+
+\rightfooter{\includegraphics[height=2cm]{figures/sw-logo.png}}
+
+%\begin{center}
+%\includegraphics[height=4in]{figures/stick-figures.pdf}
+%\end{center}
+
+\begin{itemize}
+
+\item Requirements
+
+\begin{itemize}
+
+\item User can import existing HTML, CSV, etc documents
+
+\item Program will preserve existing table accessibility
+
+\item Headings and association will be detected
+
+\item User can revise table accessibility and alter if necessary
+
+\item Program will output fully accessible XHML Strict 1.0
+
+\end{itemize}
+
+\item Non-functional Requirements
+
+\begin{itemize}
+
+\item Cross-platform
+
+\item Modularized code
+
+\item The program must itself be accessible
+
+\end{itemize}
+
+\end{itemize}
+
+%----------------------------------------
+
+
+%----------------------------------------
+
+\jhead{Features}
+
+% Turn on the slide count after the title page
+\setcounter{page}{5}
+\MyLogo{{\tiny Slide \thepage\ of 7}}
+%\LogoOn
+
+\rightfooter{\includegraphics[height=2cm]{figures/sw-logo.png}}
+
+%\begin{center}
+%\includegraphics[height=4in]{figures/stick-figures.pdf}
+%\end{center}
+
+\begin{itemize}
+
+\item Robust (X)HTML parser \& tidier, CSV parser
+
+\item Multiple table display \& cell spanning support
+
+\item Existing accessibility recognition and preservation
+
+\item Sophisticated header \& header association discovery algorithm
+
+\item Full author control over all accessibility features (captions, headers, etc.)
+
+\item Valid XHTML Strict 1.0 output
+
+\end{itemize}
+
+%----------------------------------------
+
+
+%----------------------------------------
+
+\jhead{Demonstration}
+
+% Turn on the slide count after the title page
+\setcounter{page}{6}
+\MyLogo{{\tiny Slide \thepage\ of 7}}
+%\LogoOn
+
+\rightfooter{\includegraphics[height=2cm]{figures/sw-logo.png}}
+
+%\begin{center}
+%\includegraphics[height=4in]{figures/stick-figures.pdf}
+%\end{center}
+
+%\begin{itemize}
+%\end{itemize}
+
+%----------------------------------------
+
+
+%----------------------------------------
+
+\jhead{Conclusion}
+
+% Turn on the slide count after the title page
+\setcounter{page}{7}
+\MyLogo{{\tiny Slide \thepage\ of 7}}
+%\LogoOn
+
+\rightfooter{\includegraphics[height=2cm]{figures/sw-logo.png}}
+
+%\begin{center}
+%\includegraphics[height=4in]{figures/stick-figures.pdf}
+%\end{center}
+
+\begin{itemize}
+
+\item Testing
+
+\begin{itemize}
+
+\item Samples with all table features, all supported HTML formats
+
+\item Testing output against WCAG
+
+\item Program testing for bugs and ATAG
+
+\end{itemize}
+
+\item Evaluation
+
+\begin{itemize}
+
+\item Did program meet requirements?
+
+\end{itemize}
+
+\item What was learnt
+
+\begin{itemize}
+
+\item Accessibility
+
+\item Swing (and Swing accessibility)
+
+\item CVS, \LaTeX
+
+\end{itemize}
+
+\end{itemize}
+
+%----------------------------------------
+
+\end{document}

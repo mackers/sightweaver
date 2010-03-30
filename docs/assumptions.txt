@@ -1,0 +1,23 @@
+Headings
+- If the first row's or column's cells are bolded or anyway distinguished from 
+  the other cells then assume that this row/column is a table header.
+- Similarly, if other rows or columns contain text that is dissimilar to
+  surrounding text (ie. bold), then this row/column is considered to also be
+  significant for generating table headers.
+- If the table is thought to be formatted using Word's autoformat feature,
+  then the format may be used to generate header information.
+- If row/column headers are missing, the table cell scope is considered to be
+  'col'.
+
+Captions/Summaries/Titles
+- If a paragraph exists before or after the table with a caption style (or
+  otherwise distinctly marked up then assume that this is a caption.
+- If the first row in the table is a merged row consisting of a single cell
+  or the first row only has content in the middle cell or left most cell, then
+  assume that this cell is a caption.
+- If the caption is very small, it is assumed to be a 'title' instead.
+- If a header label is not in the dictionary, or is an acronym, then it is
+  assumed to be an abbreviation.
+
+General
+- Assume that all tables passed to the program are data tables.

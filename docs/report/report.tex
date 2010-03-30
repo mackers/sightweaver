@@ -1,0 +1,81 @@
+% $Id: report.tex 271 2003-05-02 16:04:07Z mackers $
+\documentclass[a4paper,12pt]{report}
+
+\title{SightWeaver - A Table Repair Tool
+\\ \small \textcolor{red}{$Id: report.tex 271 2003-05-02 16:04:07Z mackers $}
+} 
+\author{David McNamara}
+\date{2003}
+
+\usepackage{color}
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsExtensions{.pdf,.mps,.png,.jpg}
+
+\newcommand{\code}[1]{\ensuremath{#1}}
+\newcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
+\newcommand{\url}[1]{\textcolor{blue}{#1}}
+\newcommand{\strong}[1]{\textbf{#1}}
+\newenvironment{abstract2}[1]{\addcontentsline{toc}{chapter}{Abstract}\vspace*{30mm}\begin{center}\subsubsection{Abstract}\end{center}}{}
+\newenvironment{acknowledgements}[1]{\addcontentsline{toc}{chapter}{Acknowledgements}\vspace*{30mm}\begin{center}\subsubsection{Acknowledgements}\end{center}}{}
+
+\begin{document}
+
+\pagenumbering{roman}
+
+\maketitle
+\pagebreak
+
+\vspace*{82mm}
+\begin{center}
+\strong{Sightweaver: A Table Repair Tool} \\
+David McNamara \\
+B.A.(Mod.) Information and Communications Technology \\
+Final Year Project May 2003 \\
+Supervisor: Alexis Donnelly 
+\end{center}
+\pagebreak
+
+\include{abstract}
+\pagebreak
+
+\include{acknowledgements}
+\pagebreak
+
+\tableofcontents
+\pagebreak
+
+\setlength{\parskip}{0.5em}
+
+\pagenumbering{arabic}
+
+\chapter{Introduction}
+\include{introduction}
+
+\chapter{Background}
+\include{background}
+
+\chapter{Design}
+\include{design}
+
+\chapter{Implementation}
+\include{implementation}
+
+\chapter{Analysis}
+\include{evaluation}
+
+\chapter{Conclusion}
+\include{conclusion}
+
+\pagebreak
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{report}
+\bibliographystyle{plain}
+\pagebreak
+
+\appendix
+\include{appendix-b}
+\chapter{User Manual}
+\include{appendix-a}
+\include{appendix-c}
+
+\end{document}

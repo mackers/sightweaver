@@ -1,0 +1,6 @@
+accessibility
+visually impaired
+adaptive technology, assistive technology
+screen reader
+braille display
+user agent

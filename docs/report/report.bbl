@@ -1,0 +1,74 @@
+\begin{thebibliography}{10}
+
+\bibitem{joeclark}
+Joe Clark.
+\newblock {\em Building Accessible Websites}.
+\newblock New Riders Publishing, 2002.
+
+\bibitem{nda:accessit}
+Brenda Delaney.
+\newblock Irish national disability authority it accessibility guidelines.
+\newblock Technical report, National Disability Authority,
+  \url{http://accessit.nda.ie/}, 2002.
+
+\bibitem{dijkstra}
+Edgar~W. Dijkstra.
+\newblock The humble programmer.
+\newblock {\em Communications of the ACM}, 15(10):859--866, October 1972.
+
+\bibitem{gpl}
+Free~Software Foundation.
+\newblock The gnu general public license (gpl).
+\newblock \url{http://www.gnu.org/copyleft/gpl.html}.
+
+\bibitem{irishgov}
+Irish Goverment.
+\newblock Irish public service metadata standard.
+\newblock Technical report, Irish Government,
+  \url{http://www.gov.ie/webstandards/metastandards/}, 2002.
+
+\bibitem{section508}
+US~Government.
+\newblock Section 508 standards.
+\newblock Technical report, US Government, \url{http://www.section508.gov/},
+  1998.
+
+\bibitem{w3c:atag}
+Authoring Tool Accessibility Guidelines~Working Grouh.
+\newblock Authoring tool accessibility guidelines 1.0.
+\newblock Technical report, W3C, \url{http://www.w3.org/TR/ATAG10/}, 2000.
+
+\bibitem{w3c:xhtml}
+W3C HTML~Working Group.
+\newblock Xhtml 1.0 the extensible hypertext markup language (second edition).
+\newblock Technical report, W3C, \url{http://www.w3.org/TR/xhtml1/}, 2000.
+
+\bibitem{w3c:wcag}
+Web Content Guidelines~Working Group.
+\newblock Web content accessibility guidelines 1.0.
+\newblock Technical report, W3C, \url{http://www.w3.org/TR/WCAG10/}, 1999.
+
+\bibitem{w3c:wcaghtmltechs}
+Web Content Guidelines~Working Group.
+\newblock Html techniques for web content accessibility guidelines 1.0.
+\newblock Technical report, W3C, \url{http://www.w3.org/TR/WCAG10-HTML-TECHS/},
+  2000.
+
+\bibitem{w3c:wcagtechs}
+Web Content Guidelines~Working Group.
+\newblock Techniques for web content accessibility guidelines 1.0.
+\newblock Technical report, W3C,
+  \url{http://www.w3.org/TR/WAI-WEBCONTENT-TECHS/}, 2000.
+
+\bibitem{warp2002}
+Dr~Barry McMullin.
+\newblock Warp: Web accessibility reporting project ireland 2002 baseline
+  study.
+\newblock Technical report, DCU,
+  \url{http://eaccess.rince.ie/white-papers/2002/warp-2002-00/}, 2002.
+
+\bibitem{webaim}
+Utah~State University.
+\newblock Web accessibility in mind, 2002.
+
+\end{thebibliography}

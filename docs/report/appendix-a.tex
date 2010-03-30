@@ -1,0 +1,135 @@
+% $Id: appendix-a.tex 274 2003-05-07 16:22:37Z mackers $
+
+SightWeaver is a tool for repairing HTML tables so that they comply with
+existing accessibility standards. The program imports existing HTML documents,
+and attempts to determine accessibility information from the markup. The user
+is then presented with the corrected tables and may verify and refine the table
+structure and accessibilty information before exporting the document.
+
+Features:
+
+\begin{itemize}
+
+\item Can import XHTML, HTML and CSV files formats. Invalid or badly marked up HTML is supported by using JTidy.
+
+\item Microsoft Word and Excel ``Save-As-HTML'' documents are also explicitly supported.
+
+\item All existing accessibility information in the original document is preserved and re-used.
+
+\item Documents can contain up to 10 tables. Non-table content is preserved and also ``cleaned'' using JTidy.
+
+\item Robust table parser - cell spanning, short rows, thead, etc.
+
+\item The user is given full control over all accessibility information in the tables; including table summaries, captions and cell headers structure, header associations, axes and abbreviations.
+
+\item Output is well-formed, valid XHTML.
+
+\item (Table) output conforms to WCAG and Section 508 web standards.
+
+\item Program conforms to ATAG.
+
+\end{itemize}
+
+\section*{Running the Program}
+
+SightWeaver is a java application and therefore must have the Java Runtime
+Environment (JRE) installed in order to use. The JRE can be downloaded from Sun
+Microsystem's website\footnote{http://www.sun.com/} . Version 1.4 or greater is
+needed to run this program, and it has been tested and operates correctly under
+the Windows, Linux and Solaris operating systems.
+
+To start the program, type ``java -jar sightweaver.jar'' in a command prompt or
+terminal window. This will start the graphical user interface, which is the
+main interface for importing, manipulating and exporting documents.
+
+\section*{Importing Files}
+
+To import an existing document, click on ``Import'' in the ``File'' menu. This
+will bring up a standard dialog box, from which the document can be selected.
+Supported file types are HTML, XHTML and CSV. The tables must be data tables (as
+opposed to layout tables) and must not be nested. If the document does not
+contain any tables, the document will not be opened.
+
+Existing table accessibility information in the table will be maintained, and
+the program will attempt to guess other informations such as incorrectly
+marked up headers, and header associations.
+
+Other document content will also be preserved but will not appear in the 
+table window.
+
+\section*{The Table Display}
+
+The first table in the document will be displayed in the table display window.
+Other tables can be selected from the ``Table'' menu.
+
+The table is displayed in its \emph{logical} form, so no formatting or styling
+information will be displayed. Also, text will be cropped so as to appear in
+the table without resizing the cells.
+
+Table \emph{headers} are displayed in a bold font and cells that are
+\emph{spanned} are blank with with a diagonal line. 
+
+Cells may be selected by clicking the cell with the left button of the mouse. 
+Multiple continuous cells may be selected by clicking again on the next
+cell while depressing the ``CTRL'' button.
+
+The following information about selected cells is displayed in the status bar of
+the program window:
+
+\begin{itemize}
+
+\item The unique \strong{ID} of the header cell.
+
+\item The \strong{Abbreviation} of the header cell.
+
+\item The associated \strong{Headers} of the header or data cells.
+
+\item The \strong{Axis} of the header or data cells.
+
+\end{itemize}
+
+\section*{Repairing Tables}
+
+The table summary describes the relationship among cells, including their
+headers, spanning information or other relationships that may not be obvious
+from analysing the structure of the table but that may be apparent in a visual
+rendering of the table. The table summary may be edited using the ``Edit Summary''
+menu item of the ``Table'' menu.
+
+The table caption is used to describe the table in two to three sentences and may
+be edited using the ``Edit Caption'' menu item of the ``Table'' menu.
+
+If the program has not correctly identified the table headers, then these can be
+set using the ``Make Header Cell'' menu item. If the program has incorrectly
+set the table headers, then use the ``Make Data Cell'' menu item to change
+these to data cells.
+
+Cells should be associated with headers in order to identify the relationship
+between header and data cells. This can be achieved by selecting the data cells
+associated with a header, clicking ``Add Header'' and selecting the correct
+header. If all cells under a header can be said to be associated with it, then
+this header has a `column' scope. This can be set with the ``Add Header Scope''
+menu item. This dialog can also be used to set row scope, which means all the
+cells to the right of a header are associated with it.
+
+The table ID is a unique identifier used by cells to refer to their headings
+and the header abbreviation should be used to give a terse abbreviation for
+headers with long descriptions. These can be set using ``Edit Header Info''.
+
+The cell axis is used to label cells based on some list of categories. Use the
+``Edit Axis'' menu item to set this.
+
+\section*{Exporting Files}
+
+Once the table is satisfactory, it may be exported using the ``Export'' menu item
+of the ``File'' menu. This displays a standard `Save As' dialog box, from which
+the file can be saved as usual. The document will be saved in XHTML Strict 1.0
+format, which should be backwards compatible with most browsers.
+
+At this stage, the document will be checked for accessibility. If an error occurs,
+a descriptive dialog will be displayed and the document will not be exported.
+
+At any stage during the table repair process, the document HTML source can be viewed
+using the ``View Source'' menu item of the ``File'' menu.
+
+

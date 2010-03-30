@@ -1,0 +1,30 @@
+JTidy
+=====
+http://sourceforge.net/docman/display_doc.php?docid=1298&group_id=13153 /p
+
+W3C
+===
+http://www.w3.org/TR/REC-html40/struct/tables.html /p
+http://www.w3.org/TR/WCAG10-TECHS/#gl-table-markup /p
+http://www.w3.org/TR/WCAG10-HTML-TECHS/#tables /p
+
+Other Accessibility Techniques
+==============================
+
+http://www.yourhtmlsource.com/tables/tablesaccessibility.html /p
+http://home.att.net/~stephen_ferg/section508/accessible_tables.html /p
+http://www.webaim.org/howto/tables/
+(the-book)
+
+Swing Stuff
+===========
+http://java.sun.com/docs/books/tutorial/uiswing/misc/access.html /p
+http://java.sun.com/products/jfc/tsc/articles/accessibility/ /p
+http://java.sun.com/docs/books/tutorial/uiswing/components/table.html
+
+API
+===
+http://www.w3.org/TR/DOM-Level-2-Core/java-binding.html /p
+http://java.sun.com/xml/jaxp/dist/1.1/docs/api/org/w3c/dom/package-summary.html
+http://www.it-c.dk/research/algorithms/Kurser/SoegeProjekt/2002DECEMBER/mirrors/Tidy/doc/api/org/w3c/tidy/Tidy.html /p
+http://java.sun.com/products/jfc/swingdoc-api-1.1.1/javax/swing/JTable.html

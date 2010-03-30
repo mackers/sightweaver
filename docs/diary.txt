@@ -1,0 +1,129 @@
+Nov 4th:  background reading, w3c, etc
+Nov 11th: sample gathering
+Dec 20th: requirements and specifications draft 1
+Jan 6th:  finished reqs + specs
+Jan 13th: designed classes
+Jan 20th: started coding - class stubs
+
+Jan 21st: swing init
+- read swing tutorial
+- created tester apps
+- added to SWJFrame
+
+Jan 22nd: menus
+- 3 menus in reqs + debug menu
+
+Jan 23th: i18n
+- .properties file
+- replaced menus
+
+Jan 24th: xhtml importer (xerces)
+- installed xerces
+- added dom imports to xhtml importer class
+- hooked in debug menu to create new document using xhtml importer
+
+Feb 7th: xhtml dom to object mapping
+- preliminary mapping; tds and trs to 2d cell arrary
+- summary and caption
+
+Feb 10th-13th: displaying basic table 
+- created subclass of jtable + jtablemodel
+- stored reference to cells in jtablemodel
+- overrode methods of jtablemodel to access cell data
+- created cellrenderer to access the getcomponent method of cell
+- implemented getcomponent method of cell
+- headercell subclass creates bold text
+
+Feb 16th: row + column spanning
+- created nullcell class
+- modified xhtmlimporter to look for colspan and rowspan
+- implemented algorithm to fill table with nullcells if necessary
+- subsequent cells will be added after nullcells
+- check with w3c specs
+
+Feb 17th: selection
+- added mouse listener to table
+- mouse listener checks cells to see if they're selected and modifieds the cell object if necessary
+- updated getcomponent to return inverted colours for selected cells (which involved wrapping the textpane in a panel with no border)
+
+Feb 18th: table scrolling + status bar
+- nested tables in scrollpane to allow for large tables
+- added status bar with placeholders for id, abbr, assoc, and axis
+- added window title bar text
+
+Feb 20th: status bar + table menu
+- status bar now updates depending on cell(s) selected
+- this required implementation of id/abbr/axis detected on cells
+- also basic ("headers" attribute) header association identification
+- th cells given id 
+- table menu lists all tables in document
+
+Feb 21st: menu action listener
+- added action listeners for all menu items
+- including table selection
+
+Feb 25th: create cvs module
+- created local cvs (concurrent versioning system) to track changes
+
+Mar 12th: implemented html and csv importers, xhtml exporter
+- implemented html importer using jtidy - with jtidy.properties file
+- implemented csv importer using borrowed code
+- added null preparser placeholder
+- implemented xhtml exporter using jtidy's pretty print
+
+Mar 13th: added scope and thead support to xhtmlimporter, cell display improvements, header finder algorithm, "strong" header identifier algorithm
+- importer now supports 'row' and 'col' scopes on imported documents
+- importer now treats cells in thead as headers
+- implemented header finder algorithm for unclaimed cells
+- cells now recursively display all text in a cell
+- null cells (those that are spanned) display with diagonal line
+- made table background white
+- if no other header cells in document, cells with all text in a "strong" tag will become a header (jtidy makes a good attempt to clean "bold" and "font: bold" stuff into "strong" tags)
+- exporter now exports cell attributes (cell attributes are stored in its dom element at set time)
+- exporter now exports new header cells with correct tagname
+
+Mar 14th: preparsers, misc testing & bug fixing, new menus, filters and dialogs, system l&f
+- preparser support using "generator" tag (regular expression)
+- fixed bug in which new headers lose references to their child cells
+- misc testing & bug fixing
+- added remaining menu items + descriptions + separators 
+- contexted enabling of menu items based on type + number of cells selected
+- added hourglass cursor when opening documents
+- nested table and missing table bugs fixed
+- nice dialogs for importing and exporting errors
+- filters - html, csv, rdf
+- view source - new frame, no separate class
+- edit summary - separate dialog class, opendialogwindow, beans, etc
+- system l&f
+
+Mar 15th: misc fixes, jar testing
+- testing on windows revealed table headers aren't hidden - removing these.
+- ".xsl" error message
+- jar testing, added manifest: "javac sightweaver/*.java && jar -cmf docs/manifest.txt sightweaver.jar sightweaver org javax"
+- jar testing revealed resource bundle problem in jar files. used sightweaver. in resource bundles
+
+Mar 18th: dialog day
+- reimplemented "edit summary" dialog and implemented "edit caption", "edit header info", "edit axis" dialogs using abstract superclass
+
+Mar 19th: dialog day 2
+- implemented "add header scope" and "add header" dialog
+- implemented "clear headers"
+- implemented "make header" and "make data"
+- fixed a bug with updating display after caption change
+
+Mar 30th: added dialog descriptions
+
+Apr 3rd: added mnemonics to menus and menuitems
+
+Apr 4th: added javadoc comments
+
+Apr 6th: added gui accessibility
+- gave components accessible names where required
+- gave components accessible descriptions
+- linked labels to components
+- checked for keyboard alternatives
+
+Apr 7th: fixed misc bugs
+- added generator tag
+- added accessibility checking on  export
+- added dialog descriptions

@@ -1,0 +1,503 @@
+% $Id: background.tex 269 2003-04-22 14:45:04Z mackers $
+
+\begin{quotation}
+The power of the Web is in its universality. Access by everyone regardless of
+disability is an essential aspect.
+\end{quotation}
+ -- Tim Berners-Lee, W3C Director and inventor of the World Wide Web
+
+\section{Motivation}
+
+Why Bother With Accessibility?
+
+There are many reasons why most web developers don't concern themselves with
+accessibility. Some of these reasons are perfectly valid, but most are
+unfounded.
+
+Most believe that visitors with disabilities represent such as small number of
+total visitors as to render them insignificant. This perception is hard to
+justify when one looks at the figures. As stated in the previous chapter, between 10\% and 20\%
+of Americans have some type of disability. A Harris Poll released in
+2000 showed that 43\% of these use the Internet, less than non-disabled people,
+but considerable all the same. 
+
+The Survey on Income and Program Participation (SIPP, 1999, carried out by the
+U.S. Department of Commerce, Economics and Statistics Administration, National
+Telecommunications and Information Administration) estimates that 56.7\% of
+non-disabled people have Internet access. From these figures it can be derived
+that between 2.4\% and 4.8\% of Internet users in the United States have some
+degree of disability. 
+%\todo{nice graph here?}
+
+To put this in context, consider a popular website with a million unique
+visitors a month. By not regarding accessibility, the website owners are
+effectively denying full access to up to 48,000 people. 
+
+In the context of this document, it is desirable to isolate people in this
+category with some sort of visual impairment. The same Survey of Income and
+Program Participation found that 3.5\% of Americans have vision problems, and 
+21\% of these people have Internet access. That's about 1,542,410 people
+who are not going to able to correctly see a website the way the designers
+would. The numbers doesn't seem so abstract when a raw human figure is
+put on it.
+
+Another reason why accessibility is not implemented is the myth that it is
+expensive. This only really holds true if it is done after the fact. Building
+basic accessibility into the design in the first place is effectively free,
+requiring developers only to add small amounts of extra code here and there, a
+task which should be done without a second thought. In fact, in the long
+term, it will probably save the company money in disability lawsuits and
+other costs.
+
+For instance, in Australia in June 1999, Bruce Maguire lodged a complaint with
+the Human Rights \& Equal Opportunity Commission (HREOC) under a law called the
+Disability Discrimination Act. His complaint concerned the Website of the
+Sydney Organising Committee for the Olympic Games (SOCOG), which Maguire
+alleged was inaccessible to him as a blind person. Maguire successfully won the
+case, and the SOCOG was fined \$20,000 in Australian dollars. It was argued
+that building accessibility into the project afterwards would have cost A\$2.8,
+but experts believe that incorporating it from the start would have only added
+2\% to the cost.
+
+Companies must already provide for minority groups. Religious holidays and customs
+must be honoured and company buildings must be properly accessible, so
+why not websites?
+
+Additionally, a conscious effort is made by website developers to make their
+website `accessible' to users of different browsers. So, in that respect, they
+must recognise the diversity on which the web is founded, and so should have no
+problem envisioning alternative versions of their website. The problem may in
+fact be a very basic human fear; ``To imagine your site as experienced by a
+blind person is to imagine you are blind yourself.''\cite{joeclark}
+
+The bottom line, however, is that a level of social responsibility must be
+applied by website designers and content developers. Although technically
+impossible, if a website were to discriminate between different races or
+against women, then there would be uproar, so why should discrimination against
+people with disabilities be different? 
+
+\section{Legal Requirements}
+
+In most developed countries today there is anti-discrimination legislation
+which forbids discrimination or unequal treatment on the basis of disability.
+While in most cases this legislation predates the popular uptake of the web, in
+general it can be applied to the web (see Olympics example above). Furthermore,
+in certain jurisdictions, there is now an explicit requirements for government
+departments' and agencies' websites to be accessible. Two such examples are
+touched on below.
+
+\subsection{Section 508}
+
+\begin{quotation}
+
+Section 508 requires that Federal agencies' electronic and information
+technology is accessible to people with disabilities. The Centre for
+Information Technology Accommodation (CITA), in the U.S. General Services
+Administration's Office of Government-wide Policy, has been charged with the
+task of educating Federal employees and building the infrastructure necessary
+to support Section 508 implementation.\cite{section508}
+
+\end{quotation}
+
+The guidelines themselves are similar to W3C's Web Content Accessibility
+Guidelines but obviously with a more legal slant. Within the last year Section
+508 has come into law, requiring all government websites (with a few minor
+exceptions) to comply. 
+
+Additionally, any private sector companies that want to sell to the United
+States Government would presumably adhere to these standards. After that,
+other private companies might start to take notice.
+
+\subsection{Irish Government Web Publication Guidelines}
+
+In 1999, the Department of the Taoiseach launched Web Publication Guidelines
+for Public Sector bodies\cite{irishgov}, with the target for all Government
+Department web sites to achieve level AA compliance (see section on Web Content
+Accessibility Guidelines) by the end of 2001. A 2002 Web Accessibility in
+Ireland Study\cite{warp2002} showed that 100\% of public service websites
+failed to meet the WCAG AA accessibility level, proving that a lot of work is
+needed.
+
+The guidelines themselves have been compiled by the National Disability
+Authority\cite{nda:accessit}, and are generally aligned with W3C's WCAG
+guidelines.
+
+\section{Auxiliary Benefits}
+
+Apart from the social and legal liabilities that accessibility negates, they are
+a number of auxiliary benefits which may not be entirely obvious, both for the
+website owner and for disabled and non-disabled visitors.
+
+Apart from the actual increase in overall visitor numbers by enabling access to
+people with disabilities, you may also attract visitors that may not actually
+have come in the first place. For instance, blind shoppers may prefer the
+comfort and ease of shopping online rather than face the difficulty of getting
+in town and navigating real-world shops. Similarly, accessible websites for
+hotels allow disabled users to research travel plans and any special
+requirements they may need. In effect, these websites can make business gains,
+that otherwise wouldn't have existed.
+
+In practice, making a website accessible can have all sorts of other benefits. 
+Usually, this very act ensures that the website is of a better quality than its
+inaccessible rivals. In general, accessible websites afford a greater level
+of standards compliance and logical emphasis, a trait which is picked up by
+search engines which look for structural headings to rank a site and index
+textual equivalents of images and multimedia, thus boosting targeted traffic
+to your website.
+
+The use of image descriptions and the separation of content and presentation
+via CSS\footnote{Cascading Style Sheets allow the website's style to be placed
+in a separate file which only needs to be downloaded once for the whole site.}
+leads to a reduced download time, which is beneficial both to the server's
+bandwidth use and to visitors with slow connections. It also means that, should
+they wish, users may safely turn images off or easily view the website in
+alternative browsers, such as mobile phones and kiosks.
+
+\section{How People with Visual Impairments Use the Web}
+
+Visually disabled users range from from the colour blind to the fully blind.
+Table accessibility does not adversely affect the colour blind, who are still
+able to see the table structure. Similarly, people with a relatively modest
+visual impairments may use a screen magnifier to blow up the size of text,
+images, tables and everything else on the screen. They are essentially seeing
+the same table structure as a non-visually impaired person, and do not need to
+make use of any extra information about the table structure.
+
+Visitors that are totally blind, i.e. don't actually use the computer monitor
+use something called a \emph{screen reader}, which is a program that reads or
+speaks aloud a description of the website consisting of, but not limited to,
+the textual content, descriptions of images and multimedia, `meta' information,
+links, and table structural information. While most screen readers are robust
+enough to handle even the most badly-formed website, they rely on good
+authoring to give the user extra clues as to the exact make-up, structure and
+meaning of the website.
+
+A small majority of visually impaired users use braille display - a tablet
+consisting of nylon or metal pins controlled by software to give tactual
+feedback to the user. Braille software also uses the accessible content and
+structure to convey the website to the user.
+
+\section{Accessible Web Design}
+
+\begin{quotation}
+
+The World Wide Web Consortium's (W3C) commitment to lead the Web to its full
+potential includes promoting a high degree of usability for people with
+disabilities.
+
+WAI, in coordination with organisations around the world, pursues accessibility
+of the Web through five primary areas of work: technology, guidelines, tools,
+education and outreach, and research and development. \cite{w3c:wcag}
+
+\end{quotation}
+
+Since 1999, the W3C has been working on its Web Accessibility Initiative (WAI).
+One of the primary purposes of the WAI is to set out guidelines for
+accessibility in web content, authoring tools and in user agents. For the
+purposes of this document, the recommendations on web content and authoring
+authoring tools are interesting. 
+
+The WAI's Web Content Accessibility Guidelines ``explain how to make Web content
+accessible to people with disabilities. The guidelines are intended for all Web
+content developers (page authors and site designers) and for developers of
+authoring tools.''\cite{w3c:wcag} 
+
+From a technical point of view, these guidelines appear very abstract and so
+two more recommendations are provided. The first is \emph{Techniques for Web
+Content Accessibility}\cite{w3c:wcagtechs}, which reiterates the above document
+from a technical perspective while providing points to the relevant sections in
+the more detailed guidelines on individual web technologies. The second set of
+recommendations, \emph{HTML Techniques for Web Content Accessibility
+Guidelines}\cite{w3c:wcaghtmltechs} is a detailed technical document on how to
+implement the above accessibility guidelines in the actual HTML or web content. 
+
+By closely following the guidelines in these documents, web authors can develop
+websites that are accessible to people with all sorts of disabilities.
+Developers of web site authoring tools, including accessibility validators and
+repair tools should use the guidelines to ensure that their programs only
+output accessible web content.
+
+\subsection{Web Content Accessibility Guidelines}
+
+The Web Content Accessibility Guidelines cover most elements of a typical
+website. Below are described some of the salient points, with the exception
+of tables, which are described in more detail in the next section.
+
+Each checkpoint has one of three \emph{priority} levels attached.  Level one
+priority checkpoints are basic requirements for accessible websites and
+\emph{must} be implemented by content developers. Addressing level two
+checkpoints will remove significant barriers to accessing web documents, and
+\emph{should} be implemented by content developers. Priority three checkpoints
+\emph{may} be satisfied by websites as they will further improve web
+accessibility. Websites conforming to these standards can be said to have a
+\emph{conformance level} of A, AA or AAA respectively.
+
+The following checkpoints have not been labelled with their
+recommended priorities, as the table repair tool will strive to create level
+three priority HTML. 
+
+The first guideline is to provide equivalent alternatives to auditory and
+visual content. This means that all images, pre-recorded audio and video should
+have a text equivalent to allow access both to visually impaired visitors and
+to those with reading or cognitive disabilities. For instance, in HTML, every
+image should contain an ``alt'' attribute containing a textual description of
+the image. Guideline 6 is related to this and requires that new technologies
+such as CSS, scripts, applets and frames do not render the page inaccessible,
+and that there should be alternative content, if appropriate. Furthermore,
+Guideline 8 states that any embedded content that has its own interface
+should also be fully accessible.
+
+The second guideline states that colour shouldn't be relied upon to convey
+information. For example, links should not be styled using colour alone, 
+as users with colour-blindness may not be able to distinguish linked text from
+non-linked text.
+
+Guideline 3 requires that markup and style sheets are used correctly. This
+guideline encompasses a range of checkpoints including ensuring that the HTML
+is well-formed and validates to a standard grammar\footnote{HTML grammars are
+sets of standards, e.g. HTML 4.01 to which websites state their adherence by
+specifying a document type declaration.}, and that headers, lists, quotations
+and tables are marked up in HTML using their intended tags. This ensures
+alternative browsing devices can intelligibly understand the organisation of a
+page. This guideline also encourages use of CSS style-sheets to store the
+style and presentation of a website, freeing other agents from having to
+decipher in-line presentation tags.
+
+Natural language use should be identified by declaring the primary language for
+the document in general, as well as any other languages used. This allows
+speech synthesisers to choose how the text is pronounced. It also allows search
+engines to find key words in the particular language used. In practise, content
+developers should use a ``lang'' attribute on the HTML element and any other
+elements as necessary. Additionally, abbreviations and acronyms should have
+their full meaning described using a ``abbr'' or ``acronym'' tag.
+
+Guideline 5 is concerned with ensuring tables transform gracefully and is 
+covered in detail in the next section.
+
+The remainder of the guidelines are more abstract, stating that websites are
+designed without any specific device in mind (e.g. mice), remain compatible
+with known assistive technology shortfalls, and provide context, orientation
+and navigation information. 
+
+Naturally, it is also recommended that websites adhere to the other W3C
+guidelines and technologies.
+
+\subsection{Accessible Tables}
+
+Guideline 5 is especially interesting in the context of this report as it
+encourages the correct markup of tables so that they can be correctly
+``transformed'' by accessible browsers and other assistive technologies.
+
+``Tables should be used to mark up truly tabular information (``data
+tables'')''\cite{w3c:wcag}, meaning that tables used to layout web
+pages should be avoided, as these may cause problems for users of
+screen readers.
+
+The following checkpoints are also recommended:
+
+%\todo{sample HTML table containing all these checkpoints and reference in each section to the table}
+
+\subsubsection{Provide Summary Information}
+
+All tables should have summaries. In HTML, these can take the form of a
+``caption'' element to describe table in two or three sentences, e.g. ``Number
+of civilians killed in the war''. A caption may not always be necessary.
+
+A summary of the table should be provided via the ``summary'' attribute. The
+purpose of the this is to describe the relationship among cells, including
+their headers, spanning information or ``other relationships that may not be
+obvious from analysing the structure of the table but that may be apparent in a
+visual rendering of the table''\cite{w3c:wcag}. The summary may also be used to
+describe the context of the table in terms of the entire document. An example:
+``This table charts the number of civilians killed per day in the war and to
+which side they belonged. The first row lists the three nationalities involved
+in the war and the first column lists the dates in which they were killed
+ranging from 17th March to 21st April''.
+
+\subsubsection{Specify Table Headers}
+
+The table's logical headers must be marked up as headers, i.e. in HTML, data
+cells should use ``td'' tags and header cells should use ``th'' cells. 
+
+Repeated rows of headers should be placed in a ``thead'' element and repeated
+rows of footers (merely headers at the bottom of the table) should be placed
+in a ``tfoot'' element.
+
+\subsubsection{Specify Header Cell Associations}
+
+Table elements should be labelled with appropriate markup to identify the
+relationship between data and header cells. Each data cells should have one or
+more related headers to which the data in that cell pertains. A ``scope''
+attribute can be applied to a table header to imply that this header is
+authoritative for cells below it (``col'' scope) or to the left of it (``row''
+scope). For more complex tables, data cells can also be labelled with the
+``headers'' attribute in order to indicate a relationship with one or more
+individual headers.
+
+A third attribute, ``axis'' may be used to label cells so that future browsers
+and agents will be able to select data from a table by filtering on 
+categories.
+
+\subsubsection{Provide Header Label Abbreviations}
+
+For headers with long descriptions, an ``abbr'' attribute should be used to
+give a terse abbreviation so that future screen reading browsers which can read
+row and column headers for each cell can cut down on reading time and
+repetition.
+
+\subsection{Authoring Tool Guidelines}
+
+The W3C also provides guidelines for developers creating \emph{authoring
+tools}\cite{w3c:atag}. An authoring tool can be defined as a program used
+to create web content, including:
+
+\begin{itemize}
+
+\item ``WYSIWYG''\footnote{What You See Is What You Get} HTML, XML and CSS
+editors.
+
+\item Tools that have the option as saving in a web format (i.e. word 
+processors or desktop publishing content)\footnote{It should be noted at
+this stage that the most popular word processor, Word, is in breach of 
+almost every Authoring Tool Guideline.} and third party tools that
+convert these formats to web formats.
+
+\item Tools that produce multimedia where it is intended for use on
+the web.
+
+\item Tools for site management for site publication, including tools
+that automatically generate web content from databases, and tools
+that convert from one format to the other.
+
+\end{itemize}
+
+Since most web content is created using an authoring tool of some description,
+they play a critical role in ensuring the accessibility of the web. To this
+end, ``authoring tool developers must take steps such as ensuring conformance
+to accessibility standards (e.g., HTML 4), checking and correcting accessibility
+problems, prompting, and providing appropriate documentation and help.''
+
+A summary of W3C's authoring tool guidelines follows:
+
+\begin{enumerate}
+
+\item Authoring tools should support accessible authoring practices. That is,
+authoring tools should generate accessible content and not introduce any
+non-accessible content. If the tool imports, transforms or converts existing
+content, it should preserve any existing accessibility information.
+
+\item Authoring tools should generate well-formed, valid markup using 
+existing W3C standards.
+
+\item The creation of accessible content should be supported. I.e. the author
+should be allowed to input text equivalents, captions, auditory descriptions,
+etc. that ensure that the final version is accessible. Where mandatory
+information is needed, the author should be prompted.
+
+\item Ways of checking and correcting inaccessible content should be provided.
+The user should be informed of inaccessible content and assisted in correcting
+these problems. Any markup not recognised by the tool should be preserved.
+
+\item The tool's accessibility features should be part of the program's overall
+``look and feel'' so that the author easily accepts these features as part
+of the operation of the program.
+
+\item Accessibility should be promoted in the help and documentation.
+
+\item The tool itself must be accessible to authors with disabilities using
+existing operating system accessibility standards and conventions. 
+%\todo{see appendix b?}
+
+\end{enumerate}
+
+\section{Related Work}
+
+\label{relatedwork}
+
+Below is a short list of validators and tools to be used by web content
+developers to make their websites more accessible. The list is limited to the
+most feature-rich and effective validators and tools that specialise in
+table accessibility.
+
+For each tool a brief description is given as well as its features and
+limitations, if any. By showing the current state-of-the-art and the limits
+there of, this section hopes to justify this report's objective of creating a
+tool which will overcome some of these difficulties.
+
+\subsubsection{Bobby}
+
+Bobby is a web accessibility validator ``designed to help expose and repair
+barriers to accessibility and encourage compliance with existing accessibility
+guidelines.'' It comes in a desktop or an online form and can check single
+web-pages or whole sites against WCAG or Section 508 accessibility guidelines.
+
+More information: http://bobby.watchfire.com/
+
+\subsubsection{The Wave}
+
+The WAVE is a free online tool that ``facilitates human judgement in the
+accessible design process.'' For a given website, it will `flag' all elements
+in the web page and indicate possible problems using different icons.
+
+More information: http://www.wave.webaim.org/
+
+\subsubsection{W3C HTML Validation Service}
+
+While not strictly an accessibility validator, W3C's HTML Validation Service
+checks HTML and XHTML web pages for conformance to W3C standards. It is
+useful for ensuring that web pages are well-formed and do not contain
+any invalid markup.
+
+More information: http://validator.w3.org/
+
+\subsubsection{Tablin}
+
+Tablin is a program that can linearise HTML tables. It displays a textual
+version of a table similar to what a screen reader may produce. 
+
+The tool is useful for testing tables to make sure they make sense when
+linearised, but does not seem to take in account the full suite of accessible
+features, such as headers associations, and so may not be entirely useful for
+the purposes of this document.
+
+More information: http://www.w3.org/WAI/References/Tablin/
+
+\subsubsection{Accessify.com's Accessible Table Builder}
+
+This tool lets users create fully accessible tables from scratch. The user
+may specify the cell's structure including height, width, headers etc. as well
+as the table summary, caption and the data itself and the tool will return
+fully accessible table HTML.
+
+The main problem with this tool is that is does not allow the import of
+existing tables/documents, requiring tedious cell-by-cell input. It also does
+not permit complex header hierarchies, cell axes or header abbreviations.
+
+More information:\newline
+http://www.accessify.com/tools-and-wizards/accessible-table-builder\_step1.asp
+
+\subsubsection{A-Prompt}
+
+A-Prompt (or Accessibility-Prompt) is a free software tool designed ``to improve
+the usability of HTML documents by evaluating Web pages for accessibility
+barriers and then providing developers with a fast and easy way to make the
+necessary repairs.''
+
+The program itself is quite sophisticated, allowing the user to check web pages
+against all W3C and Section 508 conformance levels. The author has full control
+over accessibility features such as text equivalents, form accessibility and
+table accessibility.
+
+Its table support is reasonable, allowing the user to enter summary and caption
+information for each table and abbreviations for each header. However it only
+recognises headers in the first row or first column, so more complex tables
+are not supported. Also, while it recognises the absence of header scopes
+and associations, it does not allow in-line editing and suggests that the
+author add these manually.
+
+More information: http://aprompt.snow.utoronto.ca/
+
+%\subsubsection{WebAIM.org's Screen Reader Simulation}
+
+%More information: http://www.webaim.org/simulations/screenreader
+

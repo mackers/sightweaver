@@ -1,0 +1,314 @@
+% $Id: evaluation.tex 269 2003-04-22 14:45:04Z mackers $
+
+\section{Evaluation}
+
+The testing of the program took part in two stages; validation and
+verification. 
+
+\subsection{Validation}
+
+Validation concerns itself with testing the specification against the user
+requirements. By taking each of the user requirements in turn and comparing to
+the system requirements it can be determine if the product is \emph{valid},
+that is, the correct product has been built. 
+
+By careful comparison of the the user requirements in this document (starting
+on page \pageref{userreqs}) to the system requirements (starting page
+\pageref{sysreqs}), it is evident that, yes, the product is indeed valid, as
+all user requirements have been addressed in the specification.
+
+\subsection{Verification}
+
+Verification means testing the product against the specifications, that is, is
+the product being built correctly. Each system requirement must be implemented
+in the final program, which should, at the very least, function as expected in
+the specification. 
+
+As well as correctly handling the sample test cases that are tested with it,
+the verification stage should ensure that the program is robust enough to
+handle any input within the bounds of the requirements.
+
+Furthermore, fulfilling the requirements means that the program must act within
+the requirements for all situations and circumstances. Any problems that occur
+in the problem as a result of an unanticipated user action mean that the
+program does not meet its requirements. This requires that the program be
+thoroughly tested to identify and eliminate all software flaws or ``bugs''.
+
+\subsection{Program Testing}
+
+\begin{quotation}
+
+Program testing can be a very effective way to show the presence of bugs,
+but it is hopelessly inadequate for showing their absence.\cite{dijkstra}
+
+\end{quotation}
+
+It is impractical and superfluous to list all the tests that were performed
+on the program here. Instead, the \emph{testing process} that the software
+was subjected to is described below.
+
+Testing should always involve a hypothesis; to see if the program behaves
+correctly under certain circumstances, load or situations. In each test, it
+should be known what is being tested and what is expected to happen. Each
+test was designed to test a single aspect or hypothesis and was placed into
+one of the following categories:
+
+\begin{itemize}
+
+\item Correctness -- the rightness of the algorithmic functions.
+
+\item Reliability -- how often it fails.
+
+\item Robustness -- how it tolerates changing conditions.
+
+\item Performance -- how fast it is.
+
+\item Usability -- how good the user interaction is.
+
+\item Utility -- how good is it at doing what it is supposed to.
+
+\end{itemize}
+
+Looking for software bugs can be a tedious process, so it helped to narrow the
+search to some likely places that they are likely to occur in. Things that
+``couldn't possibly happen'' usually do at some stage, the so-called
+``exceptional cases''. ``Boundary cases'' were also considered. For instance,
+something which works for the values of 2,3,4 and 5 should be tested with 0, -1
+and 1,000,000. Also, a large part of the testing concentrated on user input;
+users often do unexpected things.
+
+Another stage of the testing was looking at the javadoc comments for each
+function to try and find any weaknesses. For example, if the documentation said
+``don't do x'' then `x' was done. Large-scale abuse of the functions were
+attempted in order to find flaws. Empty strings, negative numbers and
+null-references are all examples of something which may break the code.
+
+Each flaw that was discovered was fixed in isolation. By changing one thing
+at a time, the consequences can be predicted and can be compared before and 
+after. \emph{Regression testing} after each test ensured that fixed a particular
+flaw did not introduce any new problems.
+
+\subsection{Domain Testing}
+
+Of course, the main requirement of the program is to output accessible HTML
+tables.  For testing the program's output, each sample document was put through
+the program, using typical or suitable values where user input was required. The
+output was then evaluated using three metrics; manual inspection, automatic
+inspection and field testing. 
+
+\subsubsection{Manual Inspection}
+
+The manual testing stage involved inspecting the HTML source of each processed
+document for the required accessibility information and testing against the
+project's WCAG and Section 508 requirements. In this stage, only the table's
+accessibility information was inspected. The manual testing results are shown
+in table \ref{table:manual-inspection}. There were only two test failures, and
+these can be explained by bug 0012 (see section \ref{knownissues}).
+
+\begin{table}
+\small
+\begin{tabular}{lccccc}
+\strong{Sample} & \strong{Caption} & \strong{Summary} & \strong{Headers} & \strong{Abbr.} & \strong{Axis} \\
+boldheaders-sample1 & Pass & Pass & Pass & N/A & N/A \\
+colgroup-sample1  & Pass & Pass & Pass & Pass & N/A \\
+colgroup-sample2  & Pass & Pass & Pass & Pass & N/A \\
+demonstration-sample1-word2000  & Pass & Pass & Pass & Pass & N/A \\
+demonstration-sample1-word97  & Pass & Pass & Pass & Pass & N/A \\
+general-sample1-word97  & Pass & Pass & Fail & Pass & N/A \\
+headers-sample1  & Pass & Pass & Pass & Pass & Pass \\
+layout-sample1  & \multicolumn{5}{c}{N/A} \\
+multiple-sample1  & Pass & Pass & Pass & Pass & Pass \\
+nested-sample1  & \multicolumn{5}{c}{N/A} \\
+notable-sample1  &  \multicolumn{5}{c}{N/A} \\ 
+scope-sample1  & Pass & Pass & Pass & Pass & N/A \\
+spanning-sample1-excel2000  & Pass & Pass & Fail & Pass & N/A \\
+spanning-sample1-word2000-a  & Pass & Pass & Pass & Pass & Pass \\
+spanning-sample1-word97  & Pass & Pass & Pass & Pass & Pass \\
+spanning-sample1-wordxp  & Pass & Pass & Pass & Pass & Pass \\
+spanning-sample1  & Pass & Pass & Pass & Pass & Pass \\
+thead-sample1  & Pass & Pass & Pass & Pass & N/A \\
+\end{tabular}
+\caption{Results of Manual Inspection Testing}
+\label{table:manual-inspection}
+\normalsize
+\end{table}
+
+\subsubsection{Automatic Inspection}
+
+The automatic inspection stage involves running the outputted documents through
+two validation programs; the W3C validator and Bobby (see section
+\ref{relatedwork}). The W3C validator was allowed to detect the
+document type (i.e. XHTML) but the character encoding was set to ``UTF-8''.
+Bobby's WCAG 1.0 compliance level and U.S. Section 508 compliancy is shown. The
+validation and accessibility errors are marked in table \ref{table:automatic-inspection}
+and explained below. It should be noted that the errors in the documents do not
+present any significant problems to the operation of screen reader software.
+
+\begin{description}
+\item \footnotemark[1] This document did not validate because there is one or more duplicate 
+header ID as a result of bug 0002 (see section \ref{knownissues}) 
+\item \footnotemark[2] This document did not validate because the headers attribute is empty. 
+This is an indirect symptom of bug 0012.
+\item \footnotemark[3] This document does not conform to WCAG 1.0 because there is 
+inaccessible content outside of the table(s) (not introduced by the program).
+\item \footnotemark[4] This document does not conform to WCAG 1.0 because the table contains
+an absolute width (not introduced by the program).
+\end{description}
+
+\begin{table}
+\small
+\begin{tabular}{lp{25mm}p{25mm}p{25mm}}
+\strong{Sample} & \strong{W3C Validator} & \strong{Bobby WCAG} & \strong{Bobby S.508} \\
+boldheaders-sample1 & Valid & AA\footnotemark[3] & Approved\\ 
+colgroup-sample1 & Valid & AA\footnotemark[3] & Approved \\
+colgroup-sample2 & Valid & AA\footnotemark[3] & Approved \\
+demonstration-sample1-word2000 & Not Valid\footnotemark[1] & AA\footnotemark[3]  & Approved \\
+demonstration-sample1-word97 & Not Valid\footnotemark[1] & A\footnotemark[4] & Approved \\
+general-sample1-word97 & Not Valid\footnotemark[2] & A\footnotemark[4] & Approved \\
+headers-sample1 & Valid & AAA & Approved \\
+layout-sample1  & \multicolumn{3}{l}{N/A} \\
+multiple-sample1 & Not Valid\footnotemark[1]\ \footnotemark[2] & AAA & Approved \\
+nested-sample1  & \multicolumn{3}{l}{N/A} \\
+notable-sample1  & \multicolumn{3}{l}{N/A} \\
+scope-sample1 & Valid & AA\footnotemark[3] & Approved  \\
+spanning-sample1-excel2000 & Not Valid\footnotemark[1] & A\footnotemark[4] & Approved \\
+spanning-sample1-word2000-a & Valid & AA\footnotemark[4] & Approved \\
+spanning-sample1-word97  & Not Valid\footnotemark[1] & A\footnotemark[4] & Approved \\
+spanning-sample1-wordxp & Valid & A\footnotemark[3] & Approved \\
+spanning-sample1 & Valid & AAA & Approved \\ 
+thead-sample1 & Valid & AA\footnotemark[3] & Approved \\
+\end{tabular}
+\caption{Results of Automatic Inspection Testing}
+\label{table:automatic-inspection}
+\normalsize
+\end{table}
+
+\subsubsection{Field Testing}
+
+The document outputs were also tested with actual screen readers in order to
+get an appreciation of how the tables will be experiences ``in the field''.
+Three screen readers were used for this stage of testing;
+JAWS\footnote{http://www.freedomscientific.com/fs\_products/software\_jaws.asp},
+IBM Home Page Reader\footnote{http://www-3.ibm.com/able/hpr.html} and Simply
+Web 2000 \footnote{http://www.econointl.com/sw/}. Both `before' and `after'
+versions of the documents were tested, to see if the process improved their
+accessibility from the screen reader's point of view. 
+
+The results were disappointing, in that there was no significant difference 
+in the speech output of the document after it had been `accessibilised'. However,
+this is mainly due to the limitations of the screen reader programs, which do
+not take full advantage of the new accessibility information embedded in the 
+document. Some of the programs used some of the accessibility features, and
+these results are shown in table \ref{table:field-testing}.
+
+However, some consolation can be taken from the fact that the program did not
+interfere with the screen readers' reading of the document. Hopefully, as 
+the screen readers improve, they will be able to take advantage of the
+accessibility information that is `hidden' in the documents outputted by
+this and other programs.
+
+\begin{table}
+\small
+\begin{tabular}{lp{20mm}p{20mm}p{20mm}p{20mm}p{20mm}}
+& Summary & Caption & Headers & Abbrev. & Axis \\
+JAWS & Yes & Yes & No & No & No \\
+IBM HPR & No & Yes & No & No & No \\
+SW2000 & No & Yes & No & No & No \\
+\end{tabular}
+\caption{Screen Reader Utilisation of Table Accessibility Features}
+\label{table:field-testing}
+\normalsize
+\end{table}
+
+\subsubsection{ATAG Conformance}
+
+The program was also tested to see if it meets the authoring tool
+guidelines\cite{w3c:atag}. Each guideline is given below, together with
+a verdict and explanation of how the program conforms or not.
+
+\subsubsection{Guideline 1. Support accessible authoring practices}
+
+Yes. The tool automatically generates accessible markup together with 
+guiding the user in producing accessible content.
+
+\subsubsection{Guideline 2. Generate standard markup}
+
+Yes. The tool generates valid XHTML 1.0 Strict.
+
+\subsubsection{Guideline 3. Support the creation of accessible content}
+
+Yes. The program allows users to provide equivalent alternative
+information for tables.
+
+\subsubsection{Guideline 4. Provide ways of checking and correcting inaccessible content}
+
+Yes. The program checks for inaccessible content when at document export time. By its
+very nature the program provides ways to correct this.
+
+\subsubsection{Guideline 5. Integrate accessibility solutions into the overall ``look and feel''}
+
+Yes.
+
+\subsubsection{Guideline 6. Promote accessibility in help and documentation}
+
+Yes. Each dialog gives an explanation of the accessibility features.
+
+\subsubsection{Guideline 7. Ensure that the authoring tool is accessible to authors with disabilities}
+
+With the exception of bug 0001 (see below), the tool is fully accessible
+using Swing's accessibility standards.
+
+\section{Known Issues}
+
+\label{knownissues}
+
+Some of the most salient problems discovered during the implementation and
+testing process are discussed in the ``Problems Encountered'' section of the
+previous chapter (page \pageref{problems}). However, not all bugs or issues
+discovered were considered critical enough to fix in this release.  These have
+been identified below, with consideration to re-addressing them at some stage in
+the future (see ``Future Work'', page \pageref{futurework}). 
+
+Each bug is identified with a \emph{bug id}, which is also used to mark the bug
+in the program source code. The bug list is sorted by severity of bug, with the
+highest priority first. None of these bugs are critical, but they do imply the
+program does not meet the system requirements: 
+
+\begin{enumerate}
+
+\item Bug 0001: Cursor keys do not function in the table viewer, resulting in
+the need for a mouse for program operation. This means the program is not
+in fact ATAG\cite{w3c:atag} compliant.
+
+\item Bug 0018: Layout tables are not identified when imported.
+
+\item Bug 0014: Regular expression for identifying HTML files does not work
+as expected.
+
+\item Bug 0002: The user can enter a duplicate ID in the ``Edit Header Info'' dialog.
+
+\item Bug 0012: The ``Make Header'' dialog does not assign the new header a header
+ID.
+
+\item Bug 0007: It is possible to import a new document without exporting the current
+one. This may result in a loss of data.
+
+\item Bug 0008: It is possible to close the window without exporting the currently
+open document. This may result in a loss of data.
+
+\item Bug 0009: A maximum of 10 headers per cell is allowed. Attempting to add another
+header should give an error message to inform the user.
+
+\item Bug 0010: Setting header scope to ``row'' on a cell that spans rows does not
+set the headers on cells to the right of the spanned cells.
+
+\item Bug 0011: As bug 0010, but with column spanning.
+
+\item Bug 0019: Table menu's list of table captions could exceed the required
+12 letters (as in requirements).
+
+\item Bug 0026: Exporting the document does not update the application's title bar
+with the new filename.
+
+\end{enumerate}
+
